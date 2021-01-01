@@ -35,8 +35,31 @@ function getPasswordOptions() {
     return;
   }
 
-  //statement to check that the entered value 
+  //variable to store response to special character requirement
+  let specialChar = confirm('Should your password contain special characters? Click Ok if yes. Click Cancel if no.');
+
+  //variable to store response to numeral requirement
+  let numericChar = confirm('Should your password contain numeric digits? Click Ok if yes. Click Cancel if no.');
+
+  //variable to store response to lowerCase requirement
+  let lowerCaseChar = confirm('Should your password contain lower case letters? Click Ok if yes. Click Cancel if no.');
+
+  //variable to store respone to upperCase requirment
+  let upperCaseChar = confirm('Should your password contain upper case letters? Click Ok if yes. Click Cancel if no.');
+
+  //conditional statement to check if user clicks cancel on all confirms
+
+  if (
+    specialChar === false &&
+    numericChar === false &&
+    lowerCaseChar === false &&
+    upperCaseChar === false
+  ){
+    alert('You must select at least one character type. Try Again.');
+    return;
+  }
 }
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
