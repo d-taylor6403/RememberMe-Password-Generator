@@ -30,7 +30,7 @@ function getPasswordOptions() {
     return;
   }
 
-  if(length>120) {
+  if(length > 120) {
     alert('Password cannot be more than 120 characters long. Try Again.');
     return;
   }
