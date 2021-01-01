@@ -68,13 +68,83 @@ function getPasswordOptions() {
     upperCaseChar: upperCaseChar
   };
 
+  return getPasswordOptions;
+}
+
+//function to get random element from array
+function getRandom(arr) {
+  let randomIndex = Math.floor(Math.random() * arr.length);
+  let randomElement = arr[randomIndex];
+
+  return randomElement;
+}
+
+//function to build password based on user input
+function buildPassword(){
+  let options = getPasswordOptions();
+  //variable to store password as its being concatenated
+  let result = [];
+
+  //array to store types of characters to include
+  let possibleCharacters = [];
+
+  //array to contain one of each type of chosen character 
+  let guaranteedCharacters = [];
+
+  //conditional statement tht adds array of special characters to possible characters and add 1 random
+  //character to guaranteedCharacters.
+  //Push new random special character to guaranteedCharacters
+  if(userChoices.specialChar) {
+    possibleCharacters = possibleCharacters.concat(symbols);
+    guaranteedCharacters.push(getRandom(symbols))
+  }
+
+  //conditional statement tht adds array of numeric characters to possible characters and add 1 random
+  //character to guaranteedCharacters.
+  //Push new random special character to guaranteedCharacters
+  if(userChoices.numericChar) {
+    possibleCharacters = possibleCharacters.concat(numerals);
+    guaranteedCharacters.push(getRandom(numerals))
+  }
+
+  //conditional statement tht adds array of lower case characters to possible characters and add 1 random
+  //character to guaranteedCharacters.
+  //Push new random special character to guaranteedCharacters
+  if(userChoices.lowerCaseChar) {
+    possibleCharacters = possibleCharacters.concat(lowerAlpha);
+    guaranteedCharacters.push(getRandom(lowerAlpha))
+  }
+
+  //conditional statement tht adds array of upper case characters to possible characters and add 1 random
+  //character to guaranteedCharacters.
+  //Push new random special character to guaranteedCharacters
+  if(userChoices.upperCaseChar) {
+    possibleCharacters = possibleCharacters.concat(upperAlpha);
+    guaranteedCharacters.push(getRandom(upperAlpha))
+  }
+
+  //Loop through possible characters and push to results array
+  for(let i = 0; i < options.length; i++) {
+    let possibleCharacter = getRandom(possibleCharacters);
+
+    result.push(possibleCharacters);
+  }
+
+  //Mix at least one of the guaranteed character in the result
+  for(let i = 0; i<guaranteedCharacters.length; i++) {
+    result[i] = guaranteedCharacters[i];
+  }
+
+  //Create a string from result array to pass into writePassword
+  return result.join('');
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = buildPassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
