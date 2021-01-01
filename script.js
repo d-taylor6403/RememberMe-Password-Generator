@@ -58,7 +58,16 @@ function getPasswordOptions() {
     alert('You must select at least one character type. Try Again.');
     return;
   }
-}
+
+  //Object to store user input
+  let userChoices = {
+    length: length,
+    specialChar: specialChar,
+    numericChar: numericChar,
+    lowerCaseChar: lowerCaseChar,
+    upperCaseChar: upperCaseChar
+  };
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
