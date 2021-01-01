@@ -15,7 +15,7 @@ console.log(symbols);
 function getPasswordOptions() {
   //variable to store user length selection
   let length = parseInt(
-    prompt('Your password must be bewtween 8-120 characters.How many characters should your password contain?')
+    prompt('Enter your desired password length. \nPasswords must be at least 8 characters and no more than 120 characters.')
   );
   console.log(length);
 
