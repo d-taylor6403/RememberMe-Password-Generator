@@ -7,7 +7,7 @@ let upperAlpha = String.prototype.toUpperCase.apply(lowerAlpha).split(",");
 console.log(upperAlpha);
 
 let numerals = ['1','2','3','4','5', '6','7','8','9']
-console.log(numeric);
+console.log(numerals);
 
 let symbols = ['!','$','%','^','&','*','_','+','|','~','-','=','{}','[]',':',';','>','?','.','/'];
 console.log(symbols);
