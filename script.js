@@ -68,7 +68,7 @@ function getPasswordOptions() {
     upperCaseChar: upperCaseChar
   };
 
-  return getPasswordOptions;
+  return userChoices;
 }
 
 //function to get random element from array
@@ -94,7 +94,7 @@ function buildPassword(){
   //conditional statement tht adds array of special characters to possible characters and add 1 random
   //character to guaranteedCharacters.
   //Push new random special character to guaranteedCharacters
-  if(userChoices.specialChar) {
+  if(options.specialChar) {
     possibleCharacters = possibleCharacters.concat(symbols);
     guaranteedCharacters.push(getRandom(symbols))
   }
@@ -102,7 +102,7 @@ function buildPassword(){
   //conditional statement tht adds array of numeric characters to possible characters and add 1 random
   //character to guaranteedCharacters.
   //Push new random special character to guaranteedCharacters
-  if(userChoices.numericChar) {
+  if(options.numericChar) {
     possibleCharacters = possibleCharacters.concat(numerals);
     guaranteedCharacters.push(getRandom(numerals))
   }
@@ -110,7 +110,7 @@ function buildPassword(){
   //conditional statement tht adds array of lower case characters to possible characters and add 1 random
   //character to guaranteedCharacters.
   //Push new random special character to guaranteedCharacters
-  if(userChoices.lowerCaseChar) {
+  if(options.lowerCaseChar) {
     possibleCharacters = possibleCharacters.concat(lowerAlpha);
     guaranteedCharacters.push(getRandom(lowerAlpha))
   }
@@ -118,7 +118,7 @@ function buildPassword(){
   //conditional statement tht adds array of upper case characters to possible characters and add 1 random
   //character to guaranteedCharacters.
   //Push new random special character to guaranteedCharacters
-  if(userChoices.upperCaseChar) {
+  if(options.upperCaseChar) {
     possibleCharacters = possibleCharacters.concat(upperAlpha);
     guaranteedCharacters.push(getRandom(upperAlpha))
   }
@@ -127,7 +127,7 @@ function buildPassword(){
   for(let i = 0; i < options.length; i++) {
     let possibleCharacter = getRandom(possibleCharacters);
 
-    result.push(possibleCharacters);
+    result.push(possibleCharacter);
   }
 
   //Mix at least one of the guaranteed character in the result
